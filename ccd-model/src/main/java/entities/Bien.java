@@ -13,12 +13,17 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
 import enums.BienTipoEnum;
 import enums.EstadoTipoEnum;
 
 @Entity
+@NamedQueries({
+@NamedQuery(name="Bien.findAll", query="SELECT b FROM Bien b"),
+@NamedQuery(name="Bien.findAllByTipoAndEstado", query="SELECT b FROM Bien b where b.estado=:estado and b.tipo=:tipo")})
 public class Bien {
 	
 	@Id

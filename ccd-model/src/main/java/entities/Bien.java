@@ -22,8 +22,8 @@ import enums.EstadoTipoEnum;
 
 @Entity
 @NamedQueries({
-@NamedQuery(name="Bien.findAll", query="SELECT b FROM Bien b"),
-@NamedQuery(name="Bien.findAllByTipoAndEstado", query="SELECT b FROM Bien b where b.estado=:estado and b.tipo=:tipo")})
+@NamedQuery(name="Bien.findAll", query="SELECT b FROM Bien b left join fetch b.cadenasProduccion"),
+@NamedQuery(name="Bien.findAllByTipoAndEstado", query="SELECT b FROM Bien b left join fetch b.cadenasProduccion where b.estado=:estado and b.tipo=:tipo")})
 public class Bien {
 	
 	@Id

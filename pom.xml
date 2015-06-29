@@ -12,6 +12,7 @@
   	<module>ccd-businessLogic</module>
   	<module>ccd-service</module>
   	<module>ccd-ear</module>
+  	<module>ccd-cache</module>
   </modules>
     <properties>
         <!--  encoding-->

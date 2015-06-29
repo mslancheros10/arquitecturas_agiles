@@ -5,7 +5,7 @@
     <artifactId>ccd</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>ccd-businessLogic</artifactId>
+  <artifactId>ccd-cache</artifactId>
   <packaging>ejb</packaging>
   <build>
         <finalName>${project.artifactId}</finalName>
@@ -17,7 +17,7 @@
     </dependency>
     <dependency>
   		<groupId>com.uniandes.ccd</groupId>
-  		<artifactId>ccd-cache</artifactId>
+  		<artifactId>ccd-dataAccess</artifactId>
   		<version>0.0.1-SNAPSHOT</version>
   		<type>ejb</type>
   	</dependency>

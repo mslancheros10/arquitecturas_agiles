@@ -2,5 +2,6 @@ package enums;
 
 public enum SectorTipoEnum {
 
+	JUGUETERIA, ALIMENTOS, DROGUERIA, VIDEO_JUEGOS, CALZADO, CONFECCIONES
 	
 }

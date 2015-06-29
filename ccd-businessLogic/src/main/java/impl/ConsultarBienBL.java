@@ -10,7 +10,7 @@ import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
 import cache.ConsultaBienes;
-import mapper.BienJsonMapper;
+import mapper.JsonMapper;
 import dto.BienJson;
 import entities.Bien;
 
@@ -26,9 +26,9 @@ public class ConsultarBienBL implements IConsultarBien{
 	@Override
 	public BienJson obtenerBien(Long id) {
 		if(cacheBien.getCacheWorking()){
-			return BienJsonMapper.convertToBienJson(cacheBien.getBienIdMap().get(id));
+			return JsonMapper.convertToBienJson(cacheBien.getBienIdMap().get(id));
 		}else{
-			return BienJsonMapper.convertToBienJson(bienDAO.getBienById(id));
+			return JsonMapper.convertToBienJson(bienDAO.getBienById(id));
 		}
 		
 	}
@@ -38,13 +38,13 @@ public class ConsultarBienBL implements IConsultarBien{
 		List<BienJson> bienesJson = new ArrayList<BienJson>();
 		if(cacheBien.getCacheWorking()){
 			for(Bien b:cacheBien.getAllBienes()){
-				bienesJson.add(BienJsonMapper.convertToBienJson(b));
+				bienesJson.add(JsonMapper.convertToBienJson(b));
 			}
 		}
 		else{
 			List<Bien> bienes = bienDAO.getAllBienes();	
 			for(Bien b:bienes){
-				bienesJson.add(BienJsonMapper.convertToBienJson(b));
+				bienesJson.add(JsonMapper.convertToBienJson(b));
 			}
 		}
 		return bienesJson;
@@ -55,12 +55,12 @@ public class ConsultarBienBL implements IConsultarBien{
 		List<BienJson> bienesJson = new ArrayList<BienJson>();
 		if(cacheBien.getCacheWorking()){
 			for(Bien b:cacheBien.getProducts()){
-				bienesJson.add(BienJsonMapper.convertToBienJson(b));
+				bienesJson.add(JsonMapper.convertToBienJson(b));
 			}
 		}else{
 			List<Bien> bienes = bienDAO.getProductos();
 			for(Bien b:bienes){
-				bienesJson.add(BienJsonMapper.convertToBienJson(b));
+				bienesJson.add(JsonMapper.convertToBienJson(b));
 			}
 		}
 		return bienesJson;
@@ -71,12 +71,12 @@ public class ConsultarBienBL implements IConsultarBien{
 		List<BienJson> bienesJson = new ArrayList<BienJson>();
 		if(cacheBien.getCacheWorking()){
 			for(Bien b:cacheBien.getServices()){
-				bienesJson.add(BienJsonMapper.convertToBienJson(b));
+				bienesJson.add(JsonMapper.convertToBienJson(b));
 			}
 		}else{
 			List<Bien> bienes = bienDAO.getServicios();
 			for(Bien b:bienes){
-				bienesJson.add(BienJsonMapper.convertToBienJson(b));
+				bienesJson.add(JsonMapper.convertToBienJson(b));
 			}
 		}
 		return bienesJson;

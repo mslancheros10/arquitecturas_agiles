@@ -8,10 +8,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 import enums.EtapaCadenaEnum;
 
 @Entity
+@NamedQueries({
+@NamedQuery(name="CadenaProduccion.findByOrden", query="SELECT c FROM CadenaProduccion c WHERE c.ordenTrabajo.id=:ordenId"),
+@NamedQuery(name="CadenaProduccion.findByBien", query="SELECT c FROM CadenaProduccion c WHERE c.bien.id=:bienId")})
 public class CadenaProduccion {
 	
 	@Id

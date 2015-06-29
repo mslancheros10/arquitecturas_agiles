@@ -9,7 +9,7 @@ import interfaces.IConsultarBien;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
-import mapper.BienJsonMapper;
+import mapper.JsonMapper;
 import dto.BienJson;
 import entities.Bien;
 
@@ -21,7 +21,7 @@ public class ConsultarBienBL implements IConsultarBien{
 	
 	@Override
 	public BienJson obtenerBien(Long Id) {
-		return BienJsonMapper.convertToBienJson(bienDAO.getBienById(Id));
+		return JsonMapper.convertToBienJson(bienDAO.getBienById(Id));
 	}
 	
 	@Override
@@ -29,7 +29,7 @@ public class ConsultarBienBL implements IConsultarBien{
 		List<Bien> bienes = bienDAO.getAllBienes();
 		List<BienJson> bienesJson = new ArrayList<BienJson>();
 		for(Bien b:bienes){
-			bienesJson.add(BienJsonMapper.convertToBienJson(b));
+			bienesJson.add(JsonMapper.convertToBienJson(b));
 		}
 		return bienesJson;
 	}
@@ -39,7 +39,7 @@ public class ConsultarBienBL implements IConsultarBien{
 		List<Bien> bienes = bienDAO.getProductos();
 		List<BienJson> bienesJson = new ArrayList<BienJson>();
 		for(Bien b:bienes){
-			bienesJson.add(BienJsonMapper.convertToBienJson(b));
+			bienesJson.add(JsonMapper.convertToBienJson(b));
 		}
 		return bienesJson;
 	}
@@ -49,7 +49,7 @@ public class ConsultarBienBL implements IConsultarBien{
 		List<Bien> bienes = bienDAO.getServicios();
 		List<BienJson> bienesJson = new ArrayList<BienJson>();
 		for(Bien b:bienes){
-			bienesJson.add(BienJsonMapper.convertToBienJson(b));
+			bienesJson.add(JsonMapper.convertToBienJson(b));
 		}
 		return bienesJson;
 	}

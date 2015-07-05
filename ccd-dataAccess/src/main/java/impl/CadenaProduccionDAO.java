@@ -1,5 +1,7 @@
 package impl;
 
+import java.util.List;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -37,6 +39,12 @@ public class CadenaProduccionDAO implements ICadenaProduccionDAO {
 			e.printStackTrace();
 		}
 		return cadenaProduccion;
+	}
+
+	@Override
+	public List<CadenaProduccion> obtenerTodasCadenasProd() {
+		return em.createNamedQuery("CadenaProduccion.findAll")
+				.getResultList();
 	}
 
 }

@@ -15,6 +15,7 @@ import enums.EtapaCadenaEnum;
 
 @Entity
 @NamedQueries({
+@NamedQuery(name="CadenaProduccion.findAll", query="SELECT c FROM CadenaProduccion c"),
 @NamedQuery(name="CadenaProduccion.findByOrden", query="SELECT c FROM CadenaProduccion c WHERE c.ordenTrabajo.id=:ordenId"),
 @NamedQuery(name="CadenaProduccion.findByBien", query="SELECT c FROM CadenaProduccion c WHERE c.bien.id=:bienId")})
 public class CadenaProduccion {

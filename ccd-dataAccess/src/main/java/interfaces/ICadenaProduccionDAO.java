@@ -1,5 +1,7 @@
 package interfaces;
 
+import java.util.List;
+
 import entities.CadenaProduccion;
 
 public interface ICadenaProduccionDAO {
@@ -8,4 +10,5 @@ public interface ICadenaProduccionDAO {
 
 	public CadenaProduccion obtenerCadenaPorBien(Long idBien);
 
+	public List<CadenaProduccion> obtenerTodasCadenasProd();
 }

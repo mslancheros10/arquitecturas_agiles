@@ -38,4 +38,15 @@ public class CadenaProduccionService {
 			return Response.status(500).build();
 		}
 	}
+	
+	@GET
+	@Path("/cadenasProd")
+	@Produces("application/json")
+	public Response obtenerCadenasProd(){
+		try {
+			return Response.ok(consultarCadenaProduccion.obtenerTodasCadenasProd()).build();
+		} catch (Exception e) {
+			return Response.status(500).build();
+		}
+	}
 }

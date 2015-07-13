@@ -36,7 +36,7 @@ public class JsonMapper {
 		if (cadenaProduccion != null) {
 			cadenaProdJson.setId(cadenaProduccion.getId());
 			cadenaProdJson.setDescripcion(cadenaProduccion.getDescripcion());
-			cadenaProdJson.setEtapa(cadenaProduccion.getEtapa().toString());
+			cadenaProdJson.setEtapa(cadenaProduccion.getEtapa()!=null?cadenaProduccion.getEtapa().toString():null);
 			cadenaProdJson.setIdBien(cadenaProduccion.getBien()!=null ? cadenaProduccion.getBien().getId():null);
 			cadenaProdJson.setIdOrdenTrabajo(cadenaProduccion.getOrdenTrabajo()!=null ? cadenaProduccion.getOrdenTrabajo().getId():null);
 		}

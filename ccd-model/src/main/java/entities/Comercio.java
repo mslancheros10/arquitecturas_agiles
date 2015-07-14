@@ -1,13 +1,11 @@
 package entities;
 
 import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
-
 import enums.SectorTipoEnum;
 
 @Entity

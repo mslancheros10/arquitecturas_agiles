@@ -24,7 +24,7 @@ public class CadenaProduccionDAO implements ICadenaProduccionDAO {
 			cadenaProduccion = (CadenaProduccion) em.createNamedQuery("CadenaProduccion.findByOrden")
 					.setParameter("ordenId", idOrdenTrabajo).getSingleResult();
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw e;
 		}
 		return cadenaProduccion;
 	}
@@ -36,7 +36,7 @@ public class CadenaProduccionDAO implements ICadenaProduccionDAO {
 			cadenaProduccion =  (CadenaProduccion) em.createNamedQuery("CadenaProduccion.findByBien")
 					.setParameter("bienId", idBien).getSingleResult();
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw e;
 		}
 		return cadenaProduccion;
 	}

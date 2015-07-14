@@ -10,12 +10,18 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
+import org.jboss.resteasy.logging.impl.Log4jLogger;
+
+
+
 @Stateless
 @Path("/bien-service")
 public class BienService {
 	
 	@EJB
 	private IConsultarBien consultarBien;
+	
+	private Log4jLogger logger;
 	
 	@GET
 	@Path("/bien/{bienId}")
@@ -24,6 +30,7 @@ public class BienService {
 		try {
 			return Response.ok(consultarBien.obtenerBien(bienId)).build();
 		} catch (Exception e) {
+			logger.info("context",e);
 			return Response.status(500).build();
 		}
 	}
@@ -35,6 +42,7 @@ public class BienService {
 		try {
 			return Response.ok(consultarBien.obtenerTodosBienes()).build();
 		} catch (Exception e) {
+			logger.info("context",e);
 			return Response.status(500).build();
 		}
 	}
@@ -46,6 +54,7 @@ public class BienService {
 		try {
 			return Response.ok(consultarBien.obtenerTodosProductos()).build();
 		} catch (Exception e) {
+			logger.info("context",e);
 			return Response.status(500).build();
 		}
 	}
@@ -57,6 +66,7 @@ public class BienService {
 		try {
 			return Response.ok(consultarBien.obtenerTodosServicios()).build();
 		} catch (Exception e) {
+			logger.info("context",e);
 			return Response.status(500).build();
 		}
 	}

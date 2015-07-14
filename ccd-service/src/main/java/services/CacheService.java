@@ -6,6 +6,8 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.Response;
 
+import org.jboss.resteasy.logging.impl.Log4jLogger;
+
 import cache.ConsultaBienes;
 import cache.ConsultaCadenasProd;
 
@@ -19,6 +21,8 @@ public class CacheService {
 	@EJB
 	private ConsultaCadenasProd cacheCadenas;
 	
+	private Log4jLogger logger;
+	
 	@POST
 	@Path("/bien")
 	public Response updateBienCache(){
@@ -26,6 +30,7 @@ public class CacheService {
 			cacheBien.orchester();
 			return Response.status(200).build();
 		} catch (Exception e) {
+			logger.info("context",e);
 			return Response.status(500).build();
 		}
 	}
@@ -37,6 +42,7 @@ public class CacheService {
 			cacheCadenas.orchester();
 			return Response.status(200).build();
 		} catch (Exception e) {
+			logger.info("context",e);
 			return Response.status(500).build();
 		}
 	}

@@ -36,7 +36,7 @@ public class OrdenTrabajo {
 	@ManyToOne(fetch=FetchType.EAGER)
 	private Socio socio;
 	
-	@ManyToOne(fetch=FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.EAGER)
 	private Comercio comercio;
 	
 	@OneToMany(mappedBy="ordenTrabajo", fetch=FetchType.LAZY)
